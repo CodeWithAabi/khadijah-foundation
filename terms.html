@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy & Terms | Khadijah Welfare Foundation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap" rel="stylesheet">
+</head>
+
+<body class="loaded">
+    <style>
+        :root {
+            --gold: #f7c948;
+            --dark: #121212;
+            --dark-alt: #1e1e1e;
+            --light: #ffffff;
+            --muted: #ccc;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--dark-alt);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: var(--dark-alt);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 1rem 0;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav a {
+                padding: 0.7rem;
+                text-align: center;
+            }
+        }
+
+        /* Hero Banner */
+        .policy-hero {
+            text-align: center;
+            background: linear-gradient(to right, #1e1e1e, #121212);
+            padding: 4rem 2rem;
+        }
+
+        .policy-hero h1 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .policy-hero p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* Policy Section */
+        .policy-section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-content p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        footer a {
+            color: #f7c948;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- Navbar -->
+    <header>
+        <div class="logo">خدیجہ الکبریٰ</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="more-detail.html">More Details</a>
+            <a href="index.html#donate">Donate</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="blog.html">Blog</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </header>
+
+    <!-- Main Banner -->
+    <section class="policy-hero">
+        <h1>Privacy Policy & Terms of Use</h1>
+        <p>Your trust is important to us. Learn how we protect your data and how our website operates.</p>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-section">
+        <div class="policy-content">
+            <h2>1. Introduction</h2>
+            <p>Welcome to Khadijah Welfare Foundation. By accessing our website, you agree to the terms and policies
+                described below. Please read them carefully.</p>
+
+            <h2>2. Data Collection</h2>
+            <p>We collect minimal personal information such as name, email, and donation details to serve you better.
+                This data is never shared with third parties without consent.</p>
+
+            <h2>3. How We Use Your Information</h2>
+            <p>We use your data to process donations, respond to inquiries, send updates, and improve our website
+                experience.</p>
+
+            <h2>4. Cookies</h2>
+            <p>We may use cookies to enhance your experience. These cookies do not store personal information and can be
+                disabled in your browser settings.</p>
+
+            <h2>5. Security</h2>
+            <p>Your data is protected with industry-standard encryption and stored securely. We are committed to
+                safeguarding all sensitive information.</p>
+
+            <h2>6. Terms of Use</h2>
+            <p>Use of this website must be lawful and respectful. Users may not exploit, duplicate, or misuse any
+                content without written permission.</p>
+
+            <h2>7. Changes to This Policy</h2>
+            <p>We may update this page periodically. Please review it occasionally to stay informed of any changes.</p>
+
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions regarding this Privacy Policy or Terms of Use, please <a
+                    href="contact.html">contact us</a>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Khadijah Welfare Foundation. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

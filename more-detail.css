@@ -1,0 +1,731 @@
+:root {
+  --gold: #f7c948;
+  --dark: #121212;
+  --dark-alt: #1e1e1e;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  /* prevent horizontal scroll */
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #181818 0%, #121212 100%);
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* Navbar */
+header {
+  background-color: var(--dark-alt);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+ nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark-alt);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #333;
+      }
+    }
+
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)),
+    url('pics/images.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #f7c948;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #f7c948;
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/*  */
+
+.about-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  color: #f7c948;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  word-spacing: 5px;
+}
+
+.about-text .urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.5rem;
+  color: #ccc;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lang-toggle {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.lang-toggle button {
+  background-color: #f7c948;
+  color: #121212;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lang-toggle button:hover {
+  background-color: #eebd3e;
+}
+
+.urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+.lightbox img {
+  width: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #f7c948;
+  cursor: pointer;
+  z-index: 1000;
+  font-weight: bold;
+}
+
+.lightbox.show {
+  display: flex;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*  */
+
+.madressa-gallery-alt {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.gallery-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.gallery-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.gallery-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.gallery-img img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.gallery-info h3 {
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-info p {
+  color: #ccc;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .gallery-row,
+  .gallery-row.reverse {
+    flex-direction: column;
+  }
+
+  .gallery-info {
+    order: -1;
+    /* info comes first on mobile */
+    text-align: center;
+  }
+}
+
+
+/*  */
+.madressa-block {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.madressa-title {
+  font-size: 2rem;
+  color: #f7c948;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.madressa-title .urdu {
+  display: block;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.4rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+}
+
+.madressa-info {
+  margin-bottom: 1.5rem;
+}
+
+.madressa-info .eng {
+  color: #ddd;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.madressa-info .urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1.25rem;
+  color: #ccc;
+  direction: rtl;
+  line-height: 2;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.donate-sticky {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f7c948;
+  color: #111;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.donate-sticky:hover {
+  background: #ffb400;
+  transform: scale(1.05);
+}
+
+/*  */
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stats-section {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.stat-box {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 2rem;
+  flex: 1 1 250px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f7c948;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+
+.prayer-section {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.prayer-header h2 {
+  color: #f7c948;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.prayer-header p {
+  color: #ccc;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.prayer-table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.prayer-table {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  border-collapse: collapse;
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.prayer-table th,
+.prayer-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+  font-size: 1rem;
+}
+
+.prayer-table th {
+  background: #f7c948;
+  color: #111;
+}
+
+.prayer-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prayer-table tbody tr:hover {
+  background: #333;
+}
+
+.date-info {
+  background: #1e1e1e;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #f7c948;
+  border-radius: 8px;
+  max-width: 320px;
+  margin: 1.5rem auto;
+  color: #eee;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.date-info strong {
+  color: #f7c948;
+}
+
+.testimonials-section {
+  background-color: #1a1a1a;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.section-title {
+  color: #f7c948;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section-title .urdu {
+  display: block;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  color: #ccc;
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.testimonial-card {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  color: #f7c948;
+  font-size: 0.95rem;
+}
+
+.testimonial-author.urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.site-footer {
+  background-color: #121212;
+  color: #ccc;
+  padding: 3rem 2rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: #f7c948;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #f7c948;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #f7c948;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.newsletter-form {
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  padding: 8px 12px;
+  border-radius: 6px 0 0 6px;
+  border: none;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 8px 16px;
+  background: #f7c948;
+  border: none;
+  color: #111;
+  font-weight: bold;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+/*  */
